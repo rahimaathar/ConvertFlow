@@ -1,3 +1,13 @@
+"""
+ConvertFlow - Professional File Converter Platform
+
+SECURITY WARNING: This application is for file format conversion only.
+DO NOT UPLOAD CONFIDENTIAL, SENSITIVE, OR PRIVATE FILES.
+Only upload test files or publicly available content.
+
+For production use, implement additional security measures and data encryption.
+"""
+
 from flask import Flask, render_template, request, redirect, url_for, flash, send_file
 from werkzeug.utils import secure_filename
 import os
@@ -9,6 +19,10 @@ app.secret_key = 'secret-key'
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['APP_NAME'] = 'ConvertFlow'
+
+# Security configuration
+app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50MB limit
+app.config['SECURITY_WARNING'] = 'Do not upload confidential files'
 
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)

@@ -205,6 +205,22 @@ ConvertFlow/
 - **Backup**: Always keep original files as backup
 - **Security**: Only upload files from trusted sources
 
+### **⚠️ IMPORTANT SECURITY WARNING**
+**DO NOT UPLOAD CONFIDENTIAL, SENSITIVE, OR PRIVATE FILES**
+
+- **Confidential Documents**: Never upload business contracts, legal documents, or sensitive reports
+- **Personal Information**: Avoid uploading files containing personal data, passwords, or private information
+- **Financial Data**: Do not upload bank statements, tax documents, or financial records
+- **Medical Records**: Never upload health records, medical reports, or patient information
+- **Intellectual Property**: Avoid uploading proprietary code, trade secrets, or confidential designs
+
+### **Best Practices for File Upload**
+- **Use Test Files**: Only upload non-sensitive, test files
+- **Public Content**: Upload only publicly available content
+- **Backup Originals**: Always keep original files as backup
+- **Verify Sources**: Only upload files from trusted sources
+- **Regular Cleanup**: Clear uploads directory regularly
+
 ---
 
 ## ⚙️ Configuration
@@ -231,6 +247,15 @@ UPLOAD_FOLDER=uploads
 
 ## 🔒 Security
 
+### **⚠️ IMPORTANT SECURITY WARNING**
+**DO NOT UPLOAD CONFIDENTIAL, SENSITIVE, OR PRIVATE FILES**
+
+- **Confidential Documents**: Never upload business contracts, legal documents, or sensitive reports
+- **Personal Information**: Avoid uploading files containing personal data, passwords, or private information
+- **Financial Data**: Do not upload bank statements, tax documents, or financial records
+- **Medical Records**: Never upload health records, medical reports, or patient information
+- **Intellectual Property**: Avoid uploading proprietary code, trade secrets, or confidential designs
+
 ### **File Security**
 - **Local Processing**: All files processed locally
 - **Temporary Storage**: Files stored temporarily in uploads directory
@@ -242,6 +267,13 @@ UPLOAD_FOLDER=uploads
 - **Error Handling**: Secure error messages
 - **Session Management**: Flask session security
 - **HTTPS Ready**: Configured for secure deployment
+
+### **Best Practices for File Upload**
+- **Use Test Files**: Only upload non-sensitive, test files
+- **Public Content**: Upload only publicly available content
+- **Backup Originals**: Always keep original files as backup
+- **Verify Sources**: Only upload files from trusted sources
+- **Regular Cleanup**: Clear uploads directory regularly
 
 ---
 
