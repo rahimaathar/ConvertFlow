@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConvertFlow - Professional File Converter</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #64748b;
+            --success-color: #059669;
+            --warning-color: #d97706;
+            --danger-color: #dc2626;
+            --light-gray: #f8fafc;
+            --border-color: #e2e8f0;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            background-color: var(--light-gray);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .main-container {
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+        
+        .hero-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+        
+        .hero-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+        
+        .hero-header h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: -0.025em;
+        }
+        
+        .hero-header p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin: 0.75rem 0 0 0;
+            font-weight: 400;
+        }
+        
+        .upload-area {
+            background: white;
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            transition: all 0.2s ease;
+        }
+        
+        .upload-area:hover {
+            border-color: var(--primary-color);
+            background-color: #f8fafc;
+        }
+        
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .upload-area h3 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .upload-area p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .custom-file-input {
+            background: var(--primary-color);
+            border: none;
+            border-radius: 6px;
+            padding: 0.875rem 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .custom-file-input:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+        
+        .file-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .conversion-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .info-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+        
+        .info-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+        
+        .info-card h5 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+        
+        .info-card p {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        .format-select {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.75rem;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+        
+        .format-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            outline: none;
+        }
+        
+        .btn-modern {
+            border-radius: 6px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-modern:hover {
+            transform: translateY(-1px);
+        }
+        
+        .btn-primary-modern {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary-modern:hover {
+            background: var(--primary-dark);
+            color: white;
+        }
+        
+        .btn-success-modern {
+            background: var(--success-color);
+            color: white;
+        }
+        
+        .btn-success-modern:hover {
+            background: #047857;
+            color: white;
+        }
+        
+        .btn-secondary-modern {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .btn-secondary-modern:hover {
+            background: #475569;
+            color: white;
+        }
+        
+        .alert-modern {
+            border: none;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+        }
+        
+        .alert-success-modern {
+            background: #ecfdf5;
+            color: #065f46;
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .alert-danger-modern {
+            background: #fef2f2;
+            color: #991b1b;
+            border-left: 4px solid var(--danger-color);
+        }
+        
+        .download-section {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .download-section h4 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .download-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .download-btn {
+            background: var(--primary-color);
+            border: none;
+            color: white;
+            border-radius: 6px;
+            padding: 0.875rem 1.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+        }
+        
+        .download-btn:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        .floating-alert {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            max-width: 400px;
+        }
+        
+        .card-body {
+            padding: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .conversion-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-header h1 {
+                font-size: 1.875rem;
+            }
+            
+            .card-body {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="main-container">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="hero-card">
+                    <div class="hero-header">
+                        <h1><i class="fas fa-exchange-alt me-3"></i>ConvertFlow</h1>
+                        <p>Professional file conversion platform</p>
+                    </div>
+                    
+                    <div class="card-body">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    <div class="alert alert-{{ category }} alert-dismissible fade show floating-alert" role="alert">
+                                        <i class="fas fa-{{ 'check-circle' if category == 'success' else 'exclamation-triangle' }} me-2"></i>
+                                        {{ message }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+
+                        {% if not uploaded_file %}
+                        <div class="upload-area">
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <h3>Upload Your File</h3>
+                            <p>Drag and drop your file here or click to browse</p>
+                            
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="file-input-wrapper">
+                                    <div class="custom-file-input">
+                                        <i class="fas fa-file-upload me-2"></i>
+                                        <span id="file-label">Choose File</span>
+                                    </div>
+                                    <input class="file-input" type="file" id="file" name="file" required onchange="updateFileName()">
+                                </div>
+                                <button type="submit" class="btn btn-modern btn-primary-modern mt-3">
+                                    <i class="fas fa-upload me-2"></i>Upload & Process
+                                </button>
+                            </form>
+                        </div>
+                        {% else %}
+                        
+                        <div class="conversion-cards">
+                            <div class="info-card">
+                                <h5><i class="fas fa-file me-2"></i>Source File</h5>
+                                <p><strong>Filename:</strong> {{ uploaded_file }}</p>
+                                <p><strong>Format:</strong> {{ detected_format.upper() if detected_format else 'Unknown' }}</p>
+                                <p><strong>Category:</strong> {{ detected_category.title() if detected_category else 'Unknown' }}</p>
+                            </div>
+                            
+                            <div class="info-card">
+                                <h5><i class="fas fa-cog me-2"></i>Convert To</h5>
+                                {% if output_formats %}
+                                <form method="post">
+                                    <input type="hidden" name="uploaded_file" value="{{ uploaded_file }}">
+                                    <select class="format-select mb-3" name="output_format" required>
+                                        <option value="">Select format...</option>
+                                        {% for fmt in output_formats %}
+                                            <option value="{{ fmt }}">{{ fmt.upper() }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <button type="submit" name="convert" value="1" class="btn btn-modern btn-success-modern w-100">
+                                        <i class="fas fa-magic me-2"></i>Convert File
+                                    </button>
+                                </form>
+                                {% else %}
+                                <p class="text-muted">No conversion options available for this file type.</p>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        {% if converted_file %}
+                        <div class="download-section">
+                            <h4><i class="fas fa-check-circle me-2"></i>Conversion Complete</h4>
+                            <p>Your file has been successfully converted and is ready for download.</p>
+                            <a href="{{ url_for('download_file', filename=converted_file) }}" class="download-btn">
+                                <i class="fas fa-download me-2"></i>Download {{ converted_file }}
+                            </a>
+                        </div>
+                        {% endif %}
+
+                        <div class="text-center mt-4">
+                            <a href="{{ url_for('index') }}" class="btn btn-modern btn-secondary-modern">
+                                <i class="fas fa-plus me-2"></i>Convert Another File
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function updateFileName() {
+    const input = document.getElementById('file');
+    const label = document.getElementById('file-label');
+    
+    if (input && input.files && input.files.length > 0) {
+        label.textContent = input.files[0].name;
+        console.log('File selected:', input.files[0].name);
+    } else {
+        label.textContent = 'Choose File';
+    }
+}
+
+// Add click handler for custom file input
+document.addEventListener('DOMContentLoaded', function() {
+    const customInput = document.querySelector('.custom-file-input');
+    const fileInput = document.querySelector('.file-input');
+    
+    if (customInput && fileInput) {
+        customInput.addEventListener('click', function() {
+            fileInput.click();
+        });
+    }
+    
+    // Auto-hide alerts after 5 seconds
+    setTimeout(function() {
+        const alerts = document.querySelectorAll('.alert');
+        alerts.forEach(function(alert) {
+            const bsAlert = new bootstrap.Alert(alert);
+            bsAlert.close();
+        });
+    }, 5000);
+});
+</script>
+</body>
+</html> 
