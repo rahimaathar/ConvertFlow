@@ -319,28 +319,8 @@ SOFTWARE.
 
 ---
 
-## 📞 Support
 
-### **Getting Help**
-- **Issues**: Report bugs via GitHub Issues
-- **Discussions**: Join GitHub Discussions
-- **Documentation**: Check this README first
-- **Email**: Contact maintainers for support
-
-### **Community**
-- **GitHub**: [ConvertFlow Repository](https://github.com/rahimaathar/ConvertFlow)
-- **Issues**: [Bug Reports](https://github.com/rahimaathar/ConvertFlow/issues)
-- **Discussions**: [Community Forum](https://github.com/rahimaathar/ConvertFlow/discussions)
 
 ---
 
-<div align="center">
 
-**Made with ❤️ by the ConvertFlow Team**
-
-*Professional file conversion for the modern web*
-
-[![GitHub stars](https://img.shields.io/github/stars/rahimaathar/ConvertFlow?style=social)](https://github.com/rahimaathar/ConvertFlow)
-[![GitHub forks](https://img.shields.io/github/forks/rahimaathar/ConvertFlow?style=social)](https://github.com/rahimaathar/ConvertFlow)
-
-</div> 
