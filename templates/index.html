@@ -376,12 +376,12 @@
                             
                             <div class="info-card">
                                 <h5><i class="fas fa-cog me-2"></i>Convert To</h5>
-                                {% if output_formats %}
+                            
                                 <form method="post">
                                     <input type="hidden" name="uploaded_file" value="{{ uploaded_file }}">
                                     <select class="format-select mb-3" name="output_format" required>
                                         <option value="">Select format...</option>
-                                        {% for fmt in output_formats %}
+                                 
                                             <option value="{{ fmt }}">{{ fmt.upper() }}</option>
                                         {% endfor %}
                                     </select>
@@ -395,7 +395,7 @@
                             </div>
                         </div>
 
-                        {% if converted_file %}
+                     
                         <div class="download-section">
                             <h4><i class="fas fa-check-circle me-2"></i>Conversion Complete</h4>
                             <p>Your file has been successfully converted and is ready for download.</p>
@@ -403,14 +403,14 @@
                                 <i class="fas fa-download me-2"></i>Download {{ converted_file }}
                             </a>
                         </div>
-                        {% endif %}
+                 
 
                         <div class="text-center mt-4">
                             <a href="{{ url_for('index') }}" class="btn btn-modern btn-secondary-modern">
                                 <i class="fas fa-plus me-2"></i>Convert Another File
                             </a>
                         </div>
-                        {% endif %}
+            
                     </div>
                 </div>
             </div>
@@ -432,7 +432,7 @@ function updateFileName() {
     }
 }
 
-// Add click handler for custom file input
+
 document.addEventListener('DOMContentLoaded', function() {
     const customInput = document.querySelector('.custom-file-input');
     const fileInput = document.querySelector('.file-input');
@@ -443,7 +443,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Auto-hide alerts after 5 seconds
+
     setTimeout(function() {
         const alerts = document.querySelectorAll('.alert');
         alerts.forEach(function(alert) {
