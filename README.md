@@ -1,67 +1,43 @@
-# 🚀 ConvertFlow
+#  ConvertFlow
 
 <div align="center">
 
 ![ConvertFlow Logo](static/favicon.svg)
 
-**Professional File Conversion Platform**
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
-[![Flask](https://img.shields.io/badge/Flask-3.0+-green.svg)](https://flask.palletsprojects.com/)
-[![Pillow](https://img.shields.io/badge/Pillow-10.0+-red.svg)](https://python-pillow.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)]()
 
 *A modern, intuitive web application for converting files between different formats with a professional, enterprise-ready interface.*
 
 </div>
 
----
-
-## 📋 Table of Contents
-
-- [✨ Features](#-features)
-- [🛠️ Technology Stack](#️-technology-stack)
-- [🚀 Quick Start](#-quick-start)
-- [📁 Project Structure](#-project-structure)
-- [🔧 Supported Conversions](#-supported-conversions)
-- [🎯 Usage Guide](#-usage-guide)
-- [⚙️ Configuration](#️-configuration)
-- [🔒 Security](#-security)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🎯 **Smart File Detection**
+### **Smart File Detection**
 - **Automatic Format Recognition**: Instantly detects file types and categories
 - **Intelligent Conversion Options**: Shows only relevant output formats
 - **Error Handling**: Graceful handling of unsupported file types
 
-### 🖼️ **Comprehensive Format Support**
+###  **Comprehensive Format Support**
 - **Images**: PNG, JPG, GIF, BMP, TIFF, WEBP, HEIF
 - **Documents**: DOC, DOCX, PDF, TXT
 - **Audio**: MP3, WAV, OGG
 - **Video**: MP4, AVI, MOV, MKV
 - **Archives**: ZIP, TAR, 7Z
 
-### 💫 **Professional Interface**
+###  **Professional Interface**
 - **Modern Design**: Clean, corporate-ready UI
 - **Responsive Layout**: Works seamlessly on all devices
 - **Real-time Processing**: Instant conversion feedback
 - **Download Management**: Secure file downloads
 
-### 🔒 **Enterprise Features**
-- **Secure Processing**: Local file handling
-- **Error Recovery**: Robust error handling
-- **Scalable Architecture**: Modular design for easy extension
-- **Professional Branding**: Corporate-ready appearance
+
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 ### **Backend**
 - **Python 3.8+**: Core programming language
@@ -76,14 +52,11 @@
 - **Bootstrap 5**: Responsive framework
 - **Font Awesome**: Icon library
 
-### **Development Tools**
-- **Git**: Version control
-- **Virtual Environment**: Python isolation
-- **Requirements.txt**: Dependency management
+
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### **Prerequisites**
 - Python 3.8 or higher
